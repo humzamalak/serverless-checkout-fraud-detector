@@ -25,14 +25,14 @@ flowchart TD
     v -- yes --> seen{Order ID<br/>already scored?}
     seen -- yes --> replay[Return stored decision]
     seen -- no --> rules[Rule signals -> score 0-100]
-    rules --> low{score &lt; 20}
+    rules --> low{score below 20?}
     low -- yes --> approve[APPROVE]
-    low -- no --> high{score &gt;= 80}
+    low -- no --> high{score 80 or more?}
     high -- yes --> decline[DECLINE]
     high -- no --> llm[Bedrock review]
     llm -- error --> review[REVIEW]
     llm -- ok --> combine[final = average of both scores]
-    combine --> out[&ge;70 DECLINE, &ge;40 REVIEW, else APPROVE<br/>rules &ge;40 never becomes APPROVE]
+    combine --> out[70+ DECLINE, 40+ REVIEW, else APPROVE<br/>rule score 40+ is never APPROVE]
 ```
 
 <!-- Replace with an exported diagram after you deploy:
