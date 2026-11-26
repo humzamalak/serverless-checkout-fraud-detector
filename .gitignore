@@ -8,3 +8,4 @@ terraform/build/
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+.ruff_cache/
