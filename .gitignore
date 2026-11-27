@@ -9,3 +9,6 @@ terraform/build/
 *.tfstate.*
 terraform.tfvars
 .ruff_cache/
+
+# Built Python packages
+*.whl
